@@ -59,12 +59,18 @@ public class MainActivity extends AppCompatActivity {
                     //Log.d("response", response);
                     String output = "";
                     try {
+                        String recommendation;
                         JSONObject jsonresponse = new JSONObject(response);
                         JSONArray jsonArray = jsonresponse.getJSONArray("weather");
                         JSONObject jsonObjectWeather = jsonArray.getJSONObject(0);
                         String description = jsonObjectWeather.getString("description");
                         JSONObject jsonObjectMain = jsonresponse.getJSONObject("main");
                         double temp = jsonObjectMain.getDouble("temp") - 273.15;
+                        if(temp < 60){
+                            recommendation = "Stay Inside or Bundle Up!";
+                        }else{
+                            recommendation = " Go Outside and Stay Cool!";
+                        }
                         double feelsLike = jsonObjectMain.getDouble("feels_like") - 273.15;
                         float pressure = jsonObjectMain.getInt("pressure");
                         int humidity = jsonObjectMain.getInt("humidity");
@@ -83,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
                                  + "\n Description: " + description
                                  + "\n Wind Speed: " + wind + " m/s (meters per second)"
                                  + "\n Cloudiness: " + clouds + "%"
-                                 + "\n Pressure: " + pressure + " hpa";
+                                 + "\n Pressure: " + pressure + " hpa"
+                                 + "\n Recommendation: " + recommendation;
                          tvResult.setText(output);
                     } catch (JSONException e) {
                         e.printStackTrace();
