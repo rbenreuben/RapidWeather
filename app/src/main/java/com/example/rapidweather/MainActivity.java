@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         String description = jsonObjectWeather.getString("description");
                         JSONObject jsonObjectMain = jsonresponse.getJSONObject("main");
                         double temp = jsonObjectMain.getDouble("temp") - 273.15;
-                        if(temp < 60){
+                        if(temp < 15){
                             recommendation = "Stay Inside or Bundle Up!";
                         }else{
                             recommendation = " Go Outside and Stay Cool!";
