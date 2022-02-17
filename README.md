@@ -6,6 +6,6 @@ Traveling without knowing the weather can be a hassle.  The goal of Rapid Weathe
 
 #### Usage: Below is an example of the application in use:
 
-
+![](https://github.com/rbenreuben/RapidWeather/RapidWeather.gif)
 
 
